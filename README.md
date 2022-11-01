@@ -31,5 +31,22 @@ The filtered string array.
 uses: actions/filter-json-array@v1.7
 with:
   data: [\"uiLib",\"Model\",\"doc\"]
-  matcher: "Hello"
+  matcher: "Lib"
 ```
+**This outputs `["uiLib"]`**
+
+## Example usage using use-match
+
+```yaml
+uses: actions/filter-json-array@v1.7
+with:
+  data: [\"uiLib",\"Model\",\"doc\"]
+  matcher: "Lib"
+  use-match: true
+```
+**This outputs `["Lib"]`**
+
+
+Support this project with a ⭐
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jurikiin)

@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 try {
   const data = core.getInput('data').toString();
@@ -8,17 +7,20 @@ try {
   console.log(`Executing with: ${data}`);
   console.log(`Comparing to matcher(s): ${matcher}`);
 
-  let filteredOutput = [];
   let splitMatches = matcher.split(',');
   let useMatch = core.getInput('use-match');
 
+  let filteredOutput = [];
+
+  //Convert data into JS friendly
+  let cleanJSONString = data.replace(/\\/g,'');
+  let cleanDataArray = JSON.parse(cleanJSONString);
+
   let addToArray = (item) => {
-    if (filteredOutput.includes(item)) return;
-    else filteredOutput.push(item);
+    if (!filteredOutput.includes(item)) filteredOutput.push(item);
   }
 
-
-  JSON.parse(data.replace(/\\/g,'')).forEach(str => {
+  cleanDataArray.forEach(str => {
     splitMatches.forEach(match => {
         if (str.includes(match)) {
             if (useMatch) addToArray(match);
@@ -27,6 +29,7 @@ try {
     });
   });
 
+  console.log(`Output: ${filteredOutput}`);
   core.setOutput("array", filteredOutput);
 
 } catch (error) {
