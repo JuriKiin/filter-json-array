@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const data = core.getInput('data');
+  const data = core.getInput('data').toString();
   const matcher = core.getInput('matcher');
 
   console.log(`Executing with: ${data}`);
@@ -18,7 +18,7 @@ try {
   }
 
 
-  JSON.parse(data).forEach(str => {
+  JSON.parse(data.replace(/\\/g,'')).forEach(str => {
     splitMatches.forEach(match => {
         if (str.includes(match)) {
             if (useMatch) addToArray(match);
