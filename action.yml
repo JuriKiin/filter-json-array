@@ -1,0 +1,21 @@
+name: 'Filtering String Arrays'
+description: 'Takes a string array, and filters it based on one or multiple inputs.'
+inputs:
+  data:  # id of input
+    default: '[]'
+    description: 'The string array to be filtered'
+    required: true
+  matcher:
+    default: '[]'
+    description: 'The values to filter the data by. (Comma separated string)'
+    required: true
+  use-match:
+    default: false
+    description: 'If there is a match, use the matcher instead of the data.'
+    required: false
+outputs:
+  array: # id of output
+    description: 'The filtered string array'
+runs:
+  using: 'node16'
+  main: 'index.js'
