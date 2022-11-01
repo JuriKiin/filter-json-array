@@ -4,17 +4,20 @@ This action takes in an array of strings, and one or multiple strings to compare
 
 ## Inputs
 
-### data
+### data (**Required**)
 
-**Required** The string array of data. Default `[]`.
+The string array of data. Default `[]`.
 
-### matcher
+### matcher (**Required**)
 
-**Required** The values to filter the data by. Default `""`.
+The values to filter the data by. 
+Default `""`.
 
-### use-match
+### use-match (**Optional**)
 
-Whether the output should use the data, or the matcher. (This is useful for getting partial matches, rather than direct matches) Default false.
+Whether the output should use the data, or the matcher. 
+
+This is useful for getting partial matches, rather than direct matches) Default false.
 
 ## Outputs
 
