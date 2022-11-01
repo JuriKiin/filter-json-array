@@ -19,11 +19,13 @@ Whether the output should use the data, or the matcher.
 
 This is useful for getting partial matches, rather than direct matches) Default false.
 
-```
-Example:
+Usage:
 
-If we get a list of changed file directories, and we want to run matrix jobs, but only run for the top level directory. So our changed files might return several files in the same module directory, but we can filter to only include the module name, allowing us to have that module name as the output to run a job using that directory.
-```
+> If we get a list of changed file directories, and we want to run matrix jobs, 
+but only run for the top level directory. So our changed files might return 
+several files in the same module directory, but we can filter to only include 
+the module name, allowing us to have that module name as the output to run a 
+job using that directory.
 
 ## Outputs
 
