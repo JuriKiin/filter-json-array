@@ -10,7 +10,7 @@ This action takes in an array of strings, and one or multiple strings to compare
 
 ### matcher
 
-**Required** The values to filter the data by. Default `[]`.
+**Required** The values to filter the data by. Default `""`.
 
 ### use-match
 
@@ -25,8 +25,8 @@ The filtered string array.
 ## Example usage
 
 ```yaml
-uses: actions/filter-json-array@v1.1
+uses: actions/filter-json-array@v1.7
 with:
-  data: "['Hello', 'World']"
-  matcher: "['Hello']"
+  data: [\"uiLib",\"Model\",\"doc\"]
+  matcher: "Hello"
 ```
