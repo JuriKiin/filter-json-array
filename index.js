@@ -18,7 +18,7 @@ try {
   }
 
 
-  data.forEach(str => {
+  JSON.parse(data).forEach(str => {
     splitMatches.forEach(match => {
         if (str.includes(match)) {
             if (useMatch) addToArray(match);
