@@ -8,14 +8,16 @@ try {
   console.log(`Executing with: ${data}`);
   console.log(`Comparing to matcher(s): ${matcher}`);
 
-  let filteredOutput = [];
+  let filteredOutput = "[";
   let parsedData = JSON.parse(data);
   let splitMatches = matcher.split(',');
   let useMatch = core.getInput('use-match');
 
   let addToArray = (item) => {
     if (filteredOutput.includes(item)) return;
-    else filteredOutput.push(item);
+    else {
+        filteredOutput += `\"${item}\",`;
+    }
   }
 
   parsedData.forEach(str => {
@@ -27,7 +29,9 @@ try {
     });
   });
 
-  core.setOutput("array", filteredOutput.toString());
+  filteredOutput = filteredOutput.replace(/.$/,"]")
+
+  core.setOutput("array", filteredOutput);
 } catch (error) {
   core.setFailed(error.message);
 }
