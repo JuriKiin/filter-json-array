@@ -17,7 +17,7 @@ Default `""`.
 
 Whether the output should use the data, or the matcher. 
 
-This is useful for getting partial matches, rather than direct matches) Default false.
+This is useful for getting partial matches, rather than direct matches. Default false.
 
 Usage:
 
